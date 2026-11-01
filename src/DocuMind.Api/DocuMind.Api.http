@@ -1,0 +1,23 @@
+@baseUrl = http://localhost:5080
+
+### Health check
+GET {{baseUrl}}/health
+
+### Upload a text document
+POST {{baseUrl}}/api/documents
+Content-Type: multipart/form-data; boundary=DocuMindBoundary
+
+--DocuMindBoundary
+Content-Disposition: form-data; name="file"; filename="sample.txt"
+Content-Type: text/plain
+
+DocuMind splits documents into overlapping chunks. Each chunk is embedded and stored in PostgreSQL with pgvector. When you ask a question, the most relevant chunks are sent to the language model, which answers with citations.
+--DocuMindBoundary--
+
+### Ask a question (returns 501 until roadmap step 5)
+POST {{baseUrl}}/api/chat/ask
+Content-Type: application/json
+
+{
+  "question": "How does DocuMind answer questions?"
+}

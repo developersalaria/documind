@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <!-- Gives access to configuration, options, logging and DI without extra packages. -->
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DocuMind.Application\DocuMind.Application.csproj" />
+  </ItemGroup>
+
+</Project>
